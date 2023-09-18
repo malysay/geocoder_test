@@ -20,7 +20,7 @@ class App extends Component {
     const { query } = this.state;
     const provider = new OpenStreetMapProvider();
 
-    // Выполняем геокодирование с использованием OpenStreetMapProvider
+    // геокодирование
     provider
       .search({ query })
       .then((result) => {

@@ -13,7 +13,7 @@ class MapComponent extends Component {
     });
 
     if (this.mapRef) {
-      // Дождитесь, пока MapContainer будет создан
+      // Ожидание создания MapContainer
       this.mapRef.whenCreated((map) => {
         map.addControl(searchControl);
       });
@@ -36,7 +36,7 @@ class MapComponent extends Component {
       // Устанавливаем новый зум
       const newZoom = 15;
 
-      // Плавно перемещаем карту к новому местоположению с анимацией
+      // Плавное перемещение карты к новому местоположению с анимацией
       this.mapRef.flyTo(newPosition, newZoom, {
         duration: 1, // Длительность анимации в секундах
       });
@@ -65,10 +65,10 @@ class MapComponent extends Component {
           searchResult.map((result, index) => (
             <CircleMarker
               center={[result.y, result.x]}
-              radius={10} // Радиус круга
-              color="blue" // Цвет обводки
-              fillColor="cyan" // Цвет заливки
-              fillOpacity={0.6} // Прозрачность заливки
+              radius={10}
+              color="blue"
+              fillColor="cyan"
+              fillOpacity={0.6}
             >
               <Popup>{result.label}</Popup>
             </CircleMarker>
