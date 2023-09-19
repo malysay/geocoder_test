@@ -34,7 +34,7 @@ class MapComponent extends Component {
       const newPosition = [firstResult.y, firstResult.x];
 
       // Устанавливаем новый зум
-      const newZoom = 15;
+      const newZoom = 16;
 
       // Плавное перемещение карты к новому местоположению с анимацией
       this.mapRef.flyTo(newPosition, newZoom, {
