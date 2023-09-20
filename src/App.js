@@ -40,13 +40,6 @@ class App extends Component {
       <div className="App">
         <h1>Leaflet Map Example</h1>
         <div>
-          {/* <input
-            type="text"
-            placeholder="Введите адрес для поиска"
-            value={this.state.query}
-            onChange={this.handleQueryChange}
-          /> */}
-          {/* Используйте компонент AddressAutoSuggest вместо обычного input */}
           <AddressAutoSuggest query={query} onQueryChange={this.handleQueryChange} />
           <button onClick={this.handleSearch}>Поиск</button>
         </div>

@@ -32,8 +32,6 @@ class MapComponent extends Component {
       // Получаем координаты первого результата (первого местоположения)
       const firstResult = searchResult[0];
       const newPosition = [firstResult.y, firstResult.x];
-
-      // Устанавливаем новый зум
       const newZoom = 16;
 
       // Плавное перемещение карты к новому местоположению с анимацией

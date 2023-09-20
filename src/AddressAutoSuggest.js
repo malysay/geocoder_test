@@ -59,8 +59,6 @@ class AddressAutoSuggest extends Component {
 
   render() {
     const { value, suggestions } = this.state;
-
-    // Настройки для компонента Autosuggest
     const inputProps = {
       placeholder: 'Введите адрес',
       value,
