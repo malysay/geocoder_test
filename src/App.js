@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import MapComponent from './Map';
 import { OpenStreetMapProvider } from 'leaflet-geosearch';
+import AddressAutoSuggest from './AddressAutoSuggest';
 
 class App extends Component {
   constructor(props) {
@@ -12,8 +13,8 @@ class App extends Component {
     };
   }
 
-  handleQueryChange = (e) => {
-    this.setState({ query: e.target.value });
+  handleQueryChange = (newValue) => {
+    this.setState({ query: newValue });
   };
 
   handleSearch = () => {
@@ -24,6 +25,7 @@ class App extends Component {
     provider
       .search({ query })
       .then((result) => {
+        console.log(result)
         this.setState({ searchResult: result });
       })
       .catch((error) => {
@@ -32,18 +34,20 @@ class App extends Component {
   };
 
   render() {
-    const { searchResult } = this.state;
+    const { searchResult, query } = this.state;
 
     return (
       <div className="App">
         <h1>Leaflet Map Example</h1>
         <div>
-          <input
+          {/* <input
             type="text"
             placeholder="Введите адрес для поиска"
             value={this.state.query}
             onChange={this.handleQueryChange}
-          />
+          /> */}
+          {/* Используйте компонент AddressAutoSuggest вместо обычного input */}
+          <AddressAutoSuggest query={query} onQueryChange={this.handleQueryChange} />
           <button onClick={this.handleSearch}>Поиск</button>
         </div>
         <main>
