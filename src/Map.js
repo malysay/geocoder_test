@@ -13,7 +13,7 @@ class MapComponent extends Component {
     });
 
     if (this.mapRef) {
-      // Ожидание создания MapContainer
+      // ожидание создания MapContainer
       this.mapRef.whenCreated((map) => {
         map.addControl(searchControl);
       });
@@ -23,27 +23,27 @@ class MapComponent extends Component {
   componentDidUpdate(prevProps) {
     const { searchResult } = this.props;
 
-    // Проверяем, изменились ли результаты поиска
+    // проверяем, изменились ли результаты поиска
     if (
       searchResult !== prevProps.searchResult &&
       searchResult &&
       searchResult.length > 0
     ) {
-      // Получаем координаты первого результата (первого местоположения)
+      // получаем координаты первого результата (первого местоположения)
       const firstResult = searchResult[0];
       const newPosition = [firstResult.y, firstResult.x];
       const newZoom = 16;
 
-      // Плавное перемещение карты к новому местоположению с анимацией
+      // плавное перемещение карты к новому местоположению с анимацией
       this.mapRef.flyTo(newPosition, newZoom, {
-        duration: 1, // Длительность анимации в секундах
+        duration: 1, // длительность анимации в секундах
       });
     }
   }
 
   render() {
     const { searchResult } = this.props;
-    const position = [62.03389, 129.73306]; // Начальные координаты карты
+    const position = [62.03389, 129.73306]; // начальные координаты карты
     const mapZoom = 13;
 
     return (

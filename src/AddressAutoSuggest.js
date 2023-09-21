@@ -12,7 +12,7 @@ class AddressAutoSuggest extends Component {
     };
   }
 
-  // Метод для получения подсказок на основе введенного значения
+  // метод для получения подсказок на основе введенного значения
   getSuggestions = (value) => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
@@ -26,16 +26,16 @@ class AddressAutoSuggest extends Component {
         );
   };
 
-  // Метод для отображения подсказки
+  // метод для отображения подсказки
   getSuggestionValue = (suggestion) =>
     `${suggestion.street} ${suggestion.building} ${suggestion.apartment} ${suggestion.city}`;
 
-  // Рендеринг подсказки
+  // рендеринг подсказки
   renderSuggestion = (suggestion) => (
     <div>{`${suggestion.street} ${suggestion.building} ${suggestion.apartment} ${suggestion.city}`}</div>
   );
 
-  // Обработчик изменения ввода
+  // обработчик изменения ввода
   onChange = (event, { newValue }) => {
     this.setState({
       value: newValue,
@@ -43,14 +43,14 @@ class AddressAutoSuggest extends Component {
     this.props.onQueryChange(newValue);
   };
 
-  // Метод вызывается при запросе подсказок
+  // метод вызывается при запросе подсказок
   onSuggestionsFetchRequested = ({ value }) => {
     this.setState({
       suggestions: this.getSuggestions(value),
     });
   };
 
-  // Метод вызывается при очистке подсказок
+  // метод вызывается при очистке подсказок
   onSuggestionsClearRequested = () => {
     this.setState({
       suggestions: [],

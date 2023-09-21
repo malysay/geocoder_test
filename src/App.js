@@ -8,8 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      query: '', // Здесь будет храниться запрос пользователя
-      searchResult: null, // Здесь будут храниться результаты геокодирования
+      query: '', // здесь будет храниться запрос пользователя
+      searchResult: null, // здесь будут храниться результаты геокодирования
     };
   }
 
