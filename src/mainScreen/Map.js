@@ -53,7 +53,7 @@ class MapComponent extends Component {
         }}
         center={position}
         zoom={mapZoom}
-        style={{ width: "80%", height: "800px" }}
+        style={{ width: "100%", height: "800px" }}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

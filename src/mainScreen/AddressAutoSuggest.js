@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Autosuggest from 'react-autosuggest';
-import addressesData from './services/addressjson.json';
+import addressesData from '../services/addressjson.json';
 
 class AddressAutoSuggest extends Component {
   constructor() {
