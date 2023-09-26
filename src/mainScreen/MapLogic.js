@@ -3,7 +3,7 @@ import { OpenStreetMapProvider } from "leaflet-geosearch";
 import { Container, Row, Col } from "react-bootstrap";
 import AddressAutoSuggest from "./AddressAutoSuggest";
 import MapComponent from "./Map";
-import Slider from "./Slider";
+import SidePanel from "./SidePanel";
 
 class MapLogic extends Component {
   constructor(props) {
@@ -40,8 +40,8 @@ class MapLogic extends Component {
     return (
       <Container fluid className="flex-grow-1">
         <Row className="flex-grow-1">
-          <Col xs={12} md={3}>
-            <Slider />
+          <Col xs={12} md={2}>
+            <SidePanel />
           </Col>
           <Col xs={12} md={9} style={{ position: "relative" }}>
             <AddressAutoSuggest

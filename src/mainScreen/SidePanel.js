@@ -1,41 +1,65 @@
 import React, { Component } from "react";
-import { Collapse, Button, Card } from "react-bootstrap";
-import SliderLogic from "./SliderLogic";
+import { Tab, Button } from "react-bootstrap";
+import SidePanelLogic from "./SidePanelLogic";
 
-class Slider extends Component {
+class SidePanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: true,
+      isOpen: false, // Состояние для открытия/закрытия SidePanel
     };
   }
 
-  toggleSlider = () => {
-    this.setState({ isOpen: !this.state.isOpen });
+  togglePanel = () => {
+    this.setState((prevState) => ({ isOpen: !prevState.isOpen }));
   };
 
   render() {
+    const { isOpen } = this.state;
+
     return (
-      <div style={{ display: "flex" }}>
-        <div style={{ minHeight: "150px", flex: 1 }}>
-          <Collapse in={this.state.isOpen} dimension="width">
-            <Card body style={{ width: "400px" }}>
-              <SliderLogic />
-            </Card>
-          </Collapse>
-        </div>
-        {/* Кнопка "Закрыть" слева */}
+      <div
+        style={{
+          width: isOpen ? "40%" : "40px", // Устанавливаем ширину в зависимости от состояния
+          position: "fixed",
+          top: 0,
+          left: 0,
+          height: "100%",
+          backgroundColor: "#fff",
+          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.5)",
+          overflowY: "auto",
+          zIndex: 1000,
+          transition: "width 0.3s", // Добавляем анимацию для плавного изменения ширины
+        }}
+      >
+        {isOpen && (
+          <Tab.Container activeKey="tab1">
+            <Tab.Content>
+              <SidePanelLogic />
+            </Tab.Content>
+          </Tab.Container>
+        )}
+
         <Button
-          onClick={this.toggleSlider}
-          style={{ marginRight: "10px" }}
-          variant="light"
+          onClick={this.togglePanel}
+          style={{
+            position: "absolute",
+            top: 0,
+            right: 0,
+            height: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "white",
+            cursor: "pointer",
+          }}
         >
-          {this.state.isOpen ? (
+          {isOpen ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
-              fill="currentColor"
+              fill="blue"
               className="bi bi-chevron-double-left"
               viewBox="0 0 16 16"
             >
@@ -53,7 +77,7 @@ class Slider extends Component {
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
-              fill="currentColor"
+              fill="blue"
               className="bi bi-chevron-double-right"
               viewBox="0 0 16 16"
             >
@@ -73,4 +97,4 @@ class Slider extends Component {
   }
 }
 
-export default Slider;
+export default SidePanel;

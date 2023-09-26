@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Tab, Tabs, ListGroup } from "react-bootstrap";
 import addressesData from "../services/addressjson.json";
 
-class SliderLogic extends Component {
+class SidePanelLogic extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,4 +45,4 @@ class SliderLogic extends Component {
   }
 }
 
-export default SliderLogic;
+export default SidePanelLogic;

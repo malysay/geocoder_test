@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App d-flex flex-column">
       {/*className="App"*/}
-      <Navbar bg="light" variant="light">
+      <Navbar bg="sky" variant="dark">
         <Container>
           <Navbar>Testoviy HEADER</Navbar>
         </Container>
