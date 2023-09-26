@@ -43,12 +43,21 @@ class MapLogic extends Component {
           <Col xs={12} md={2}>
             <SidePanel />
           </Col>
-          <Col xs={12} md={9} style={{ position: "relative" }}>
-            <AddressAutoSuggest
-              query={query}
-              onQueryChange={this.handleQueryChange}
-            />
-            <button onClick={this.handleSearch}>Поиск</button>
+          <Col xs={12} md={10} style={{ position: "relative" }}>
+            <div
+              style={{
+                position: "absolute",
+                padding: "10px",
+                borderBottom: "1px solid #ccc",
+              }}
+            >
+              {/* Поле поиска и кнопка */}
+              <AddressAutoSuggest
+                query={query}
+                onQueryChange={this.handleQueryChange}
+              />
+              <button onClick={this.handleSearch}>Поиск</button>
+            </div>
             <MapComponent searchResult={searchResult} />
           </Col>
         </Row>
