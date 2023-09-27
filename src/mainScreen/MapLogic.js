@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
-import { Container, Row } from "react-bootstrap";
+import { Container, Row, Button } from "react-bootstrap";
+
 import AddressAutoSuggest from "./AddressAutoSuggest";
 import MapComponent from "./Map";
 import SidePanel from "./SidePanel";
@@ -45,6 +46,10 @@ class MapLogic extends Component {
               position: "absolute",
               padding: "10px",
               zIndex: 401,
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
             {/* Поле поиска и кнопка */}
@@ -52,7 +57,9 @@ class MapLogic extends Component {
               query={query}
               onQueryChange={this.handleQueryChange}
             />
-            <button onClick={this.handleSearch}>Поиск</button>
+            <Button variant="secondary" onClick={this.handleSearch}>
+              Поиск
+            </Button>
           </div>
           <SidePanel />
           <MapComponent searchResult={searchResult} />

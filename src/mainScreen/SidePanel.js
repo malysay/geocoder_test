@@ -20,7 +20,7 @@ class SidePanel extends Component {
     return (
       <div
         style={{
-          width: isOpen ? "40%" : "40px", // Устанавливаем ширину в зависимости от состояния
+          width: isOpen ? "35%" : "40px", // Устанавливаем ширину в зависимости от состояния
           position: "absolute",
           top: "56px",
           bottom: 0,
@@ -57,8 +57,8 @@ class SidePanel extends Component {
           {isOpen ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
+              width="20"
+              height="20"
               fill="blue"
               className="bi bi-chevron-double-left"
               viewBox="0 0 16 16"
@@ -75,8 +75,8 @@ class SidePanel extends Component {
           ) : (
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
+              width="20"
+              height="20"
               fill="blue"
               className="bi bi-chevron-double-right"
               viewBox="0 0 16 16"

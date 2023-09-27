@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { MapContainer, TileLayer, CircleMarker, Popup } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  CircleMarker,
+  Popup,
+  ZoomControl,
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { GeoSearchControl, OpenStreetMapProvider } from "leaflet-geosearch";
 
@@ -59,6 +65,7 @@ class MapComponent extends Component {
           center={position}
           zoom={mapZoom}
           style={{ width: "100%", height: "100%" }}
+          zoomControl={false}
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -76,6 +83,16 @@ class MapComponent extends Component {
                 <Popup>{result.label}</Popup>
               </CircleMarker>
             ))}
+          <div
+          // style={{
+          //   position: "absolute",
+          //   top: "50%", // Вы можете настроить вертикальное положение контролов здесь
+          //   right: "10px", // Вы можете настроить горизонтальное положение контролов здесь
+          //   transform: "translateY(-50%)", // Вертикальная центровка
+          // }}
+          >
+            <ZoomControl position="bottomright" />
+          </div>
         </MapContainer>
       </div>
     );

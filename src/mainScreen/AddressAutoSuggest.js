@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
-import Autosuggest from 'react-autosuggest';
-import addressesData from '../services/addressjson.json';
+import React, { Component } from "react";
+import { Typeahead } from "react-bootstrap-typeahead";
+import addressesData from "../services/addressjson.json";
 
 class AddressAutoSuggest extends Component {
   constructor() {
     super();
 
     this.state = {
-      value: '',
-      suggestions: [],
+      selected: [],
     };
   }
 
@@ -19,61 +18,35 @@ class AddressAutoSuggest extends Component {
 
     return inputLength === 0
       ? []
-      : addressesData.filter((address) =>
-          `${address.street} ${address.building} ${address.apartment} ${address.city}`
-            .toLowerCase()
-            .slice(0, inputLength) === inputValue
+      : addressesData.filter(
+          (address) =>
+            `${address.street} ${address.building} ${address.apartment} ${address.city}`
+              .toLowerCase()
+              .slice(0, inputLength) === inputValue
         );
   };
 
-  // метод для отображения подсказки
-  getSuggestionValue = (suggestion) =>
-    `${suggestion.street} ${suggestion.building} ${suggestion.apartment} ${suggestion.city}`;
-
-  // рендеринг подсказки
-  renderSuggestion = (suggestion) => (
-    <div>{`${suggestion.street} ${suggestion.building} ${suggestion.apartment} ${suggestion.city}`}</div>
-  );
-
-  // обработчик изменения ввода
-  onChange = (event, { newValue }) => {
-    this.setState({
-      value: newValue,
-    });
-    this.props.onQueryChange(newValue);
-  };
-
-  // метод вызывается при запросе подсказок
-  onSuggestionsFetchRequested = ({ value }) => {
-    this.setState({
-      suggestions: this.getSuggestions(value),
-    });
-  };
-
-  // метод вызывается при очистке подсказок
-  onSuggestionsClearRequested = () => {
-    this.setState({
-      suggestions: [],
-    });
+  // метод для обработки выбора подсказки
+  handleSelect = (selected) => {
+    this.setState({ selected });
+    this.props.onQueryChange(selected[0] || ""); // Передаем значение в родительский компонент
   };
 
   render() {
-    const { value, suggestions } = this.state;
-    const inputProps = {
-      placeholder: 'Введите адрес',
-      value,
-      onChange: this.onChange,
-    };
+    const { selected } = this.state;
 
     return (
-      <Autosuggest
-        suggestions={suggestions}
-        onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
-        onSuggestionsClearRequested={this.onSuggestionsClearRequested}
-        getSuggestionValue={this.getSuggestionValue}
-        renderSuggestion={this.renderSuggestion}
-        inputProps={inputProps}
-      />
+      <div style={{ width: "400px" }}>
+        <Typeahead
+          labelKey={(option) =>
+            `${option.street} ${option.building} ${option.apartment} ${option.city}`
+          }
+          options={addressesData}
+          placeholder="Введите адрес"
+          selected={selected}
+          onChange={this.handleSelect}
+        />
+      </div>
     );
   }
 }
