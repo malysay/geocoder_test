@@ -21,25 +21,25 @@ class SidePanel extends Component {
       <div
         style={{
           width: isOpen ? "40%" : "40px", // Устанавливаем ширину в зависимости от состояния
-          position: "fixed",
-          top: 0,
-          left: 0,
-          height: "100%",
+          position: "absolute",
+          top: "56px",
+          bottom: 0,
+          height: "calc(100vh - 56px - 56px)",
           backgroundColor: "#fff",
-          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.5)",
+          alignItems: "center",
+          justifyContent: "center",
           overflowY: "auto",
-          zIndex: 1000,
+          zIndex: 402,
           transition: "width 0.3s", // Добавляем анимацию для плавного изменения ширины
         }}
       >
         {isOpen && (
-          <Tab.Container activeKey="tab1">
+          <Tab.Container>
             <Tab.Content>
               <SidePanelLogic />
             </Tab.Content>
           </Tab.Container>
         )}
-
         <Button
           onClick={this.togglePanel}
           style={{

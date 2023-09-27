@@ -47,31 +47,37 @@ class MapComponent extends Component {
     const mapZoom = 13;
 
     return (
-      <MapContainer
-        ref={(ref) => {
-          this.mapRef = ref;
+      <div
+        style={{
+          height: "calc(100vh - 56px - 56px)", // 100vh минус высота хедера и футера
         }}
-        center={position}
-        zoom={mapZoom}
-        style={{ width: "100%", height: "800px" }}
       >
-        <TileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        />
-        {searchResult &&
-          searchResult.map((result, index) => (
-            <CircleMarker
-              center={[result.y, result.x]}
-              radius={10}
-              color="blue"
-              fillColor="cyan"
-              fillOpacity={0.6}
-            >
-              <Popup>{result.label}</Popup>
-            </CircleMarker>
-          ))}
-      </MapContainer>
+        <MapContainer
+          ref={(ref) => {
+            this.mapRef = ref;
+          }}
+          center={position}
+          zoom={mapZoom}
+          style={{ width: "100%", height: "100%" }}
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
+          {searchResult &&
+            searchResult.map((result, index) => (
+              <CircleMarker
+                center={[result.y, result.x]}
+                radius={10}
+                color="blue"
+                fillColor="cyan"
+                fillOpacity={0.6}
+              >
+                <Popup>{result.label}</Popup>
+              </CircleMarker>
+            ))}
+        </MapContainer>
+      </div>
     );
   }
 }
