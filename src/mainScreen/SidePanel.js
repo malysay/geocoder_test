@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { Tab, Button } from "react-bootstrap";
+
 import SidePanelLogic from "./SidePanelLogic";
 
 class SidePanel extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isOpen: false, // Состояние для открытия/закрытия SidePanel
+      isOpen: true, // Состояние для открытия/закрытия SidePanel
     };
   }
 
@@ -33,13 +34,6 @@ class SidePanel extends Component {
           transition: "width 0.3s", // Добавляем анимацию для плавного изменения ширины
         }}
       >
-        {isOpen && (
-          <Tab.Container>
-            <Tab.Content>
-              <SidePanelLogic />
-            </Tab.Content>
-          </Tab.Container>
-        )}
         <Button
           onClick={this.togglePanel}
           style={{
@@ -47,11 +41,13 @@ class SidePanel extends Component {
             top: 0,
             right: 0,
             height: "100%",
-            display: "flex",
+            // display: "flex",
             alignItems: "center",
             justifyContent: "center",
             backgroundColor: "white",
             cursor: "pointer",
+            border: "none",
+            // outline: "none",
           }}
         >
           {isOpen ? (
@@ -92,6 +88,13 @@ class SidePanel extends Component {
             </svg>
           )}
         </Button>
+        {isOpen && (
+          <Tab.Container>
+            <Tab.Content>
+              <SidePanelLogic />
+            </Tab.Content>
+          </Tab.Container>
+        )}
       </div>
     );
   }

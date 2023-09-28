@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { OpenStreetMapProvider } from "leaflet-geosearch";
 import { Container, Row, Button } from "react-bootstrap";
 
-import AddressAutoSuggest from "./AddressAutoSuggest";
+import AddressAutoSuggest from "./SearchAutoSuggest";
 import MapComponent from "./Map";
 import SidePanel from "./SidePanel";
 

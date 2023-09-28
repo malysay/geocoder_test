@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Typeahead } from "react-bootstrap-typeahead";
+
 import addressesData from "../services/addressjson.json";
 
 class AddressAutoSuggest extends Component {
@@ -36,7 +37,13 @@ class AddressAutoSuggest extends Component {
     const { selected } = this.state;
 
     return (
-      <div style={{ width: "400px" }}>
+      <div
+        style={{
+          width: "400px",
+          border: "none", // Убираем границу
+          outline: "none",
+        }}
+      >
         <Typeahead
           labelKey={(option) =>
             `${option.street} ${option.building} ${option.apartment} ${option.city}`

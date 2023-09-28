@@ -1,9 +1,8 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import './App.css';
-import MapLogic from "./mainScreen/MapLogic";
-
 import { Navbar, Container } from "react-bootstrap";
+
+import MapLogic from "./mainScreen/MapLogic";
 
 function App() {
   return (
