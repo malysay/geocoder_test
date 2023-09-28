@@ -40,7 +40,7 @@ class AddressAutoSuggest extends Component {
       <div
         style={{
           width: "400px",
-          border: "none", // Убираем границу
+          border: "none",
           outline: "none",
         }}
       >

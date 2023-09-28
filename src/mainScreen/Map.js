@@ -83,14 +83,7 @@ class MapComponent extends Component {
                 <Popup>{result.label}</Popup>
               </CircleMarker>
             ))}
-          <div
-          // style={{
-          //   position: "absolute",
-          //   top: "50%", // Вы можете настроить вертикальное положение контролов здесь
-          //   right: "10px", // Вы можете настроить горизонтальное положение контролов здесь
-          //   transform: "translateY(-50%)", // Вертикальная центровка
-          // }}
-          >
+          <div>
             <ZoomControl position="bottomright" />
           </div>
         </MapContainer>

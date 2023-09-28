@@ -41,6 +41,7 @@ class SidePanel extends Component {
             top: 0,
             right: 0,
             height: "100%",
+            width: "40px",
             // display: "flex",
             alignItems: "center",
             justifyContent: "center",
@@ -55,7 +56,7 @@ class SidePanel extends Component {
               xmlns="http://www.w3.org/2000/svg"
               width="20"
               height="20"
-              fill="blue"
+              fill="#2B3883"
               className="bi bi-chevron-double-left"
               viewBox="0 0 16 16"
             >
@@ -73,7 +74,7 @@ class SidePanel extends Component {
               xmlns="http://www.w3.org/2000/svg"
               width="20"
               height="20"
-              fill="blue"
+              fill="#2B3883"
               className="bi bi-chevron-double-right"
               viewBox="0 0 16 16"
             >
